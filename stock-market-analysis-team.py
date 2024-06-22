@@ -1,3 +1,8 @@
+
+from dotenv import load_dotenv
+load_dotenv()
+
+
 from crewai_tools import tool
 import yfinance as yf
 
@@ -23,7 +28,7 @@ def balance_sheet(ticker):
 
 
 @tool("Insider Transactions")
-def balance_sheet(ticker):
+def insider_transactions(ticker):
     """
     Useful to get insider transactions of a stock.
     The input to this tool should be a ticker, for example, AAPL, NET.
@@ -57,8 +62,6 @@ from crewai_tools import ScrapeWebsiteTool
 scrape_tool = ScrapeWebsiteTool()
 
 
-from dotenv import load_dotenv
-load_dotenv()
 
 
 # four agents
@@ -117,7 +120,7 @@ financial_analyst = Agent(
     tools=[
         income_stmt,
         balance_sheet,
-        insider_transactions
+        insider_transactions 
     ]
 )
 
