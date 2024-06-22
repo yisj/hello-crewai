@@ -123,7 +123,7 @@ class ToolUsage:
                 tool=calling.tool_name, input=calling.arguments
             )
 
-        if not result:
+        if result is None or (isinstance(result, str) and result == ""):
             try:
                 if calling.tool_name in [
                     "Delegate work to coworker",
